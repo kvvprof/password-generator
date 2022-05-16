@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Генерируйте надежные случайные пароли, чтобы оставаться в безопасности онлайн.">
+    <meta name="keywords" content="генератор паролей">
+    <meta name="author" content="@kvvprof">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <title>Генератор паролей</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 class="header__title">Генератор паролей</h1>
+            <h2 class="header__description">Надежный пароль должен состоять из восьми или более символов латинского
+                алфавита, содержать заглавные и строчные буквы, цифры, специальные символы</h2>
+        </header>
+        <main class="password">
+            <div class="password__main">
+                <input class="password__input" type="text"  readonly>
+                    <img class="password__generate" src="./images/arrows.svg" onmouseenter="hover()" onmouseleave="unHover()">
+            </div>
+            <div class="password__status">Нажмите на поле с паролем, чтобы его скопировать</div>
+            <div class="password__options">
+                <div class="password__length-wrapper">
+                    <button class="password__minus">-</button>
+                    <input class="password__length" type="number" readonly>
+                    <button class="password__plus">+</button>
+                </div>
+                <div class="password__symbols">
+                    <p class="password__symbols-title">Специальные символы</p>
+                    <button class="password__symbols-btn"></button>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <h3 class="footer__title">Разработал <a href="https://t.me/kvvprof" target="blank">@kvvprof</a></h3>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

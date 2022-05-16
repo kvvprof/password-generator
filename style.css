@@ -1,0 +1,419 @@
+/*Обнуление*/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+	color: var(--text-first-color)
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+	font-style: normal;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+
+/* Для Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+/*--------------------*/
+
+:root {
+
+	--text-first-color: #ffffff;
+	--text-second-color: #9098A6;
+	--button-color: #458EED;
+	--butoon_hover-color: #559efd;
+	--input-color: #2d303d;
+}
+
+::selection {
+	background: var(--button-color);
+	/* Safari */
+}
+
+::-moz-selection {
+	background: var(--button-color);
+	/* Firefox */
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #393c4b;
+	color: var(--text-first-color);
+	font-family: 'Roboto Mono', monospace;
+	font-weight: 400;
+	padding: 10px;
+}
+
+input {
+	background-color: var(--input-color);
+	color: var(--text-first-color);
+}
+
+button {
+	background-color: var(--button-color);
+	color: var(--text-first-color);
+}
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	max-width: 1050px;
+	max-height: 700px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	background: url(./images/main-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 30px;
+}
+
+.wrapper:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(90deg, #282A36 50.66%, rgba(40, 42, 54, 0.909672) 77.75%, rgba(40, 42, 54, 0.71) 108.45%);
+	border-radius: 30px;
+	box-shadow: 0 0 10px #171920;
+}
+
+.header,
+.password,
+.footer {
+	width: 100%;
+	z-index: 100;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.header {
+	padding-top: 100px;
+	padding-bottom: 10px;
+}
+
+.password {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 100px;
+}
+
+.header__title {
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.header__description {
+	font-size: 18px;
+	margin-top: 22px;
+	color: var(--text-second-color);
+	max-width: 600px;
+	line-height: 22px;
+	padding-right: 30px;
+}
+
+.password__main {
+	display: flex;
+	align-items: center;
+}
+
+.password__input {
+	font-size: 40px;
+	padding: 10px;
+	border-radius: 10px;
+	height: 70px;
+	width: 100%;
+	max-width: 500px;
+	cursor: pointer;
+}
+
+.password__generate {
+	margin-left: 10px;
+	height: 70px;
+	cursor: pointer;
+	background-color: var(--button-color);
+	padding: 10px;
+	border-radius: 50px;
+	user-select: none;
+}
+
+.password__generate:hover {
+	background-color: var(--butoon_hover-color);
+	user-select: none;
+	animation-duration: 0.3s;
+	animation-name: generate_hover;
+}
+
+.password__generate--unhover {
+	margin-left: 10px;
+	height: 70px;
+	cursor: pointer;
+	background-color: var(--button-color);
+	padding: 10px;
+	border-radius: 50px;
+	user-select: none;
+	animation-duration: 0.3s;
+	animation-name: generate_unhover;
+}
+
+@keyframes generate_hover {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes generate_unhover {
+	from {
+		transform: rotate(180deg);
+	}
+
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+.password__status {
+	margin-top: 10px;
+	color: var(--text-second-color);
+}
+
+.password__options {
+	margin-top: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.password__length-wrapper,
+.password__symbols {
+	display: flex;
+	align-items: center;
+}
+
+.password__symbols {
+	margin-left: 20px;
+}
+
+.password__length {
+	font-size: 20px;
+	width: 70px;
+	padding: 5px;
+	height: 40px;
+	text-align: center;
+	border-radius: 10px;
+	margin: 0px 5px
+}
+
+.password__minus,
+.password__plus,
+.password__symbols-btn {
+	font-size: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+}
+
+.password__minus:hover,
+.password__plus:hover {
+	background-color: var(--butoon_hover-color);
+}
+
+.password__symbols-btn {
+	font-size: 30px;
+	background-color: var(--input-color);
+}
+
+.password__symbols-title {
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+.footer__title {
+	text-align: right;
+	color: var(--text-second-color);
+	margin-bottom: 30px;
+}
+
+.footer__title a {
+	color: var(--text-second-color);
+}
+
+
+@media screen and (max-width: 550px) {
+
+	.header,
+	.password,
+	.footer {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.password__input {
+		font-size: 30px;
+	}
+
+	.header {
+		padding-top: 50px;
+	}
+
+	.header__title {
+		font-size: 35px;
+	}
+
+	.header__description {
+		font-size: 16px;
+		line-height: 18px;
+		margin-bottom: 20px;
+	}
+
+	.password__options {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.password__symbols {
+		margin-top: 10px;
+		margin-left: 0px;
+		flex-direction: row-reverse;
+	}
+
+	.password__symbols-title {
+		font-size: 12px;
+		margin-left: 5px;
+	}
+
+	.password__status {
+		font-size: 12px;
+		line-height: 14px;
+	}
+}
+
+@media screen and (max-width: 290px) {
+
+	.password__input {
+		font-size: 22px;
+	}
+
+	.header__title {
+		font-size: 30px;
+	}
+
+	.header__description {
+		font-size: 14px;
+		line-height: 18px;
+		margin-bottom: 20px;
+	}
+
+	.password__symbols {
+		margin-top: 10px;
+		flex-direction: row-reverse;
+	}
+
+	.password__symbols-title {
+		font-size: 12px;
+		margin-left: 5px;
+	}
+}
